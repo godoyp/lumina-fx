@@ -1,401 +1,156 @@
-# LuminaFX v2 ✨
+# LuminaFX
 
-LuminaFX v2 é uma biblioteca visual modular em **TypeScript** para criar efeitos premium, microinterações e transições modernas em interfaces web.
+**LuminaFX** is a lightweight TypeScript plugin framework for premium UI effects, transitions, accessibility tools, and interactive frontend experiences.
 
-O projeto nasceu como uma evolução do LuminaFX original, agora com uma arquitetura baseada em **core + plugins independentes**, facilitando testes, manutenção e integração em outros projetos.
+It provides a modular way to add polished visual behavior to modern web interfaces without locking your project into a specific UI framework.
 
-> Status: em desenvolvimento ativo.
-
----
-
-## Visão geral
-
-O LuminaFX v2 foi pensado para entregar efeitos visuais reutilizáveis sem prender o projeto a um framework específico.
-
-A ideia principal é simples:
-
-```ts
-import { Lumina } from "./core";
-import {
-    ThemePlugin,
-    DropdownPlugin,
-    ShimmerPlugin
-} from "./plugins";
-
-await Lumina
-    .create({
-        debug: true
-    })
-    .use(new ThemePlugin())
-    .use(new DropdownPlugin())
-    .use(new ShimmerPlugin())
-    .start();
-```
-
-Cada plugin é responsável por um comportamento específico e pode funcionar por:
-
-- **data attributes**, para uso declarativo direto no HTML;
-- **API programática**, para casos onde o sistema precisa disparar efeitos manualmente;
-- **CSS variables**, para permitir customização visual sem alterar o código do plugin.
+> Status: early development / showcase phase.
 
 ---
 
-## Plugins disponíveis
+## Overview
+
+LuminaFX is built around a small core and independent plugins. Each plugin can be enabled, configured, and used separately.
+
+The project currently includes a live showcase site built with Vite, demonstrating the plugins working together in a real page.
+
+---
+
+## Features
+
+- TypeScript-first architecture
+- Plugin-based core
+- Framework-agnostic usage
+- Declarative behavior through `data-*` attributes
+- Programmatic API support
+- Premium UI effects and transitions
+- Accessibility-focused visual controls
+- Canvas-powered background effects
+- Lightweight playground/showcase site
+
+---
+
+## Available Plugins
 
 ### ThemePlugin
 
-Alterna entre temas `light`, `dark` ou `system`, com suporte a transição visual usando View Transitions API quando disponível.
-
-```ts
-new ThemePlugin({
-    defaultTheme: "system",
-    transition: "view",
-    toggleSelector: "[data-lumina-theme-toggle]"
-})
-```
-
-```html
-<button data-lumina-theme-toggle>
-    Alternar tema
-</button>
-```
-
----
+Switches between light and dark themes with optional View Transition support.
 
 ### DropdownPlugin
 
-Cria dropdowns independentes com fechamento por clique externo, tecla `Escape`, posicionamento configurável e efeito visual opcional.
-
-```ts
-new DropdownPlugin({
-    effect: "glow",
-    placement: "bottom"
-})
-```
-
-```html
-<button data-lumina-dropdown-trigger="docs-menu">
-    Abrir menu
-</button>
-
-<div data-lumina-dropdown-menu="docs-menu">
-    Conteúdo do dropdown
-</div>
-```
-
----
+Creates independent dropdown menus with configurable placement, close behavior, and visual effects.
 
 ### PasswordVisibilityPlugin
 
-Alterna a visibilidade de campos de senha usando um botão conectado por seletor.
-
-```ts
-new PasswordVisibilityPlugin()
-```
-
-```html
-<input id="password" type="password" />
-
-<button data-lumina-password-toggle="#password">
-    Mostrar senha
-</button>
-```
-
----
+Adds password visibility toggles using simple HTML attributes.
 
 ### ShimmerPlugin
 
-Aplica um shimmer em elementos atualizados, funcionando como feedback visual após uma mudança na tela.
-
-```ts
-const shimmer = new ShimmerPlugin({
-    intensity: "medium",
-    duration: 900
-});
-
-shimmer.pulse("#status-card");
-```
-
-Uso típico:
-
-```ts
-async function updateUser(): Promise<void> {
-    await api.updateUser();
-
-    shimmer.pulse("#user-card");
-}
-```
-
----
+Applies shimmer feedback to updated elements, useful for async updates, cache refreshes, WebSocket updates, or live UI changes.
 
 ### SpotlightPlugin
 
-Adiciona um brilho radial que acompanha o cursor dentro de um elemento.
-
-```ts
-new SpotlightPlugin({
-    intensity: "medium",
-    size: 320
-})
-```
-
-```html
-<article data-lumina-spotlight>
-    Conteúdo com spotlight
-</article>
-```
-
----
+Adds a radial glow that follows the cursor inside an element.
 
 ### CascadePlugin
 
-Revela grupos de elementos em sequência com atraso progressivo.
-
-```ts
-new CascadePlugin({
-    direction: "up",
-    distance: 28,
-    duration: 720,
-    stagger: 90,
-    once: true
-})
-```
-
-```html
-<div data-lumina-cascade>
-    <article data-lumina-cascade-item>Item 1</article>
-    <article data-lumina-cascade-item>Item 2</article>
-    <article data-lumina-cascade-item>Item 3</article>
-</div>
-```
-
-Também é possível sobrescrever o comportamento por grupo:
-
-```html
-<div
-    data-lumina-cascade
-    data-lumina-cascade-once="false"
->
-    ...
-</div>
-```
-
----
+Reveals groups of elements in sequence with progressive delays.
 
 ### ToastPlugin
 
-Exibe notificações temporárias de sucesso, erro, aviso ou informação, com animação e efeito de glow.
-
-```ts
-const toast = new ToastPlugin({
-    effect: "glow",
-    position: "top-right",
-    duration: 3600
-});
-
-toast.success("Operação concluída com sucesso!");
-toast.info("Sincronizando dados...");
-toast.error("Não foi possível concluir a operação.");
-```
-
----
+Displays temporary notifications such as success, info, warning, or error messages.
 
 ### TooltipPlugin
 
-Exibe dicas contextuais em hover ou foco, com posicionamento configurável e efeito visual.
-
-```ts
-new TooltipPlugin({
-    effect: "glow",
-    placement: "top",
-    offset: 12
-})
-```
-
-```html
-<button
-    data-lumina-tooltip="Tooltip no topo"
-    data-lumina-tooltip-placement="top"
->
-    Passe o mouse
-</button>
-```
-
----
+Adds contextual tooltips with configurable placement and visual style.
 
 ### SwitchPlugin
 
-Alterna painéis de conteúdo com fade, glow, altura automática e estado ativo nos botões.
-
-```ts
-new SwitchPlugin({
-    effect: "glow",
-    duration: 520,
-    autoHeight: true
-})
-```
-
-```html
-<button
-    data-lumina-switch-trigger="demo-switch"
-    data-lumina-switch-target="overview"
->
-    Overview
-</button>
-
-<div data-lumina-switch="demo-switch">
-    <div data-lumina-switch-panel="overview">
-        Painel overview
-    </div>
-
-    <div data-lumina-switch-panel="api" hidden>
-        Painel API
-    </div>
-</div>
-```
-
----
+Switches between panels with animated transitions, automatic height handling, and active trigger states.
 
 ### TransitionPlugin
 
-Executa transições visuais antes de navegar entre páginas.
-
-```ts
-new TransitionPlugin({
-    effect: "glow",
-    duration: 720,
-    navigateDelay: 520,
-    enterOnLoad: true
-})
-```
-
-```html
-<a
-    href="./transition-demo.html"
-    data-lumina-transition
-    data-lumina-transition-effect="glow"
->
-    Ir para página de exemplo
-</a>
-```
-
-O plugin também suaviza a entrada da próxima página usando `sessionStorage`.
-
----
+Runs visual page transitions before navigation.
 
 ### ConstellationPlugin
 
-Renderiza partículas conectadas em `canvas`, ideal para backgrounds de páginas, heros e landing pages.
+Creates connected particle effects using canvas, available as contained effects or full-page backgrounds.
 
-```ts
-new ConstellationPlugin({
-    mode: "background",
-    density: "medium",
-    interactive: true,
-    connectDistance: 170,
-    mouseRadius: 190,
-    speed: 0.28,
-    radius: 1.8,
-    opacity: 0.9,
-    lineOpacity: 0.62
-})
-```
+### StormPlugin
 
-```html
-<div data-lumina-constellation></div>
+Creates animated lightning-like digital storm effects using canvas.
 
-<main class="app">
-    ...
-</main>
-```
+### AccessibilityPlugin
+
+Provides reusable accessibility controls, including:
+
+- Exclusive color blindness filters
+- Reduced motion mode
+- Inverted colors
+- High contrast
+- Focus highlight
+- Larger font mode
+- Dyslexia-friendly font mode
 
 ---
 
-## Playground
-
-O projeto inclui uma página de playground/documentação viva construída com Vite.
-
-Ela demonstra os plugins funcionando juntos:
-
-- troca de tema;
-- dropdown com glow;
-- campo de senha;
-- shimmer em atualizações;
-- spotlight seguindo o cursor;
-- cascade em cards;
-- toasts;
-- switch de painéis;
-- transição real entre páginas;
-- constellation como background.
-
-Também existe uma página de exemplo para testar o `TransitionPlugin` com navegação real:
-
-```txt
-index.html
-transition-demo.html
-```
-
----
-
-## Estrutura do projeto
+## Project Structure
 
 ```txt
 src/
 ├── core/
-│   ├── BasePlugin.ts
-│   ├── BrowserDom.ts
-│   ├── Dom.ts
-│   ├── Events.ts
-│   ├── Lumina.ts
-│   └── index.ts
-│
 ├── plugins/
+│   ├── accessibility/
 │   ├── cascade/
 │   ├── constellation/
 │   ├── dropdown/
 │   ├── password/
 │   ├── shimmer/
 │   ├── spotlight/
+│   ├── storm/
 │   ├── switch/
 │   ├── theme/
 │   ├── toast/
 │   ├── tooltip/
-│   ├── transition/
-│   └── index.ts
-│
+│   └── transition/
 ├── playground/
 │   ├── connectDemoActions.ts
 │   ├── initializeLumina.ts
 │   ├── styles.ts
 │   └── template.ts
-│
 ├── main.ts
 └── transition-demo.ts
 ```
 
 ---
 
-## Como rodar localmente
+## Getting Started
 
-Instale as dependências:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Rode o ambiente de desenvolvimento:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Gere o build:
+Build the project:
 
 ```bash
 npm run build
 ```
 
-Pré-visualize o build:
+Run TypeScript checks only:
+
+```bash
+npm run check
+```
+
+Preview the production build:
 
 ```bash
 npm run preview
@@ -403,112 +158,225 @@ npm run preview
 
 ---
 
-## Exemplo completo
+## Basic Usage
 
 ```ts
 import { Lumina } from "./core";
+
 import {
-    CascadePlugin,
-    ConstellationPlugin,
-    DropdownPlugin,
-    PasswordVisibilityPlugin,
-    ShimmerPlugin,
-    SpotlightPlugin,
-    SwitchPlugin,
     ThemePlugin,
-    ToastPlugin,
-    TooltipPlugin,
-    TransitionPlugin
+    DropdownPlugin,
+    SpotlightPlugin,
+    ShimmerPlugin
 } from "./plugins";
 
-const shimmer =
-    new ShimmerPlugin({
-        intensity: "medium",
-        duration: 900
-    });
-
-const toast =
-    new ToastPlugin({
-        effect: "glow",
-        position: "top-right"
-    });
+const shimmer = new ShimmerPlugin();
 
 await Lumina
     .create({
         debug: true
     })
-    .use(new ThemePlugin({
-        defaultTheme: "system",
-        transition: "view",
-        toggleSelector: "[data-lumina-theme-toggle]"
-    }))
-    .use(new DropdownPlugin({
-        effect: "glow",
-        placement: "bottom"
-    }))
-    .use(new PasswordVisibilityPlugin())
-    .use(new SwitchPlugin({
-        effect: "glow",
-        duration: 520,
-        autoHeight: true
-    }))
-    .use(new CascadePlugin({
-        direction: "up",
-        stagger: 90,
-        once: true
-    }))
-    .use(new SpotlightPlugin({
-        intensity: "medium",
-        size: 320
-    }))
-    .use(new TooltipPlugin({
-        effect: "glow"
-    }))
-    .use(new TransitionPlugin({
-        effect: "glow",
-        duration: 720,
-        navigateDelay: 520,
-        enterOnLoad: true
-    }))
-    .use(new ConstellationPlugin({
-        mode: "background",
-        density: "medium",
-        interactive: true
-    }))
+    .use(
+        new ThemePlugin({
+            defaultTheme: "system",
+            transition: "view",
+            toggleSelector: "[data-lumina-theme-toggle]"
+        })
+    )
+    .use(
+        new DropdownPlugin({
+            effect: "glow",
+            placement: "bottom"
+        })
+    )
+    .use(
+        new SpotlightPlugin({
+            intensity: "medium",
+            size: 320
+        })
+    )
     .use(shimmer)
-    .use(toast)
     .start();
 
-toast.success("LuminaFX iniciado!");
+shimmer.pulse("#status-card");
 ```
 
 ---
 
-## Customização visual
+## Declarative Usage
 
-Os plugins foram pensados para aceitar customização via CSS variables.
+Many plugins can be wired directly from HTML.
 
-Exemplo:
+### Theme Toggle
+
+```html
+<button data-lumina-theme-toggle>
+    Toggle theme
+</button>
+```
+
+### Dropdown
+
+```html
+<button data-lumina-dropdown-trigger="docs-menu">
+    Open menu
+</button>
+
+<div
+    data-lumina-dropdown-menu="docs-menu"
+    data-lumina-dropdown-placement="bottom"
+>
+    Dropdown content
+</div>
+```
+
+### Password Visibility
+
+```html
+<input
+    id="password"
+    type="password"
+/>
+
+<button data-lumina-password-toggle="#password">
+    Show password
+</button>
+```
+
+### Tooltip
+
+```html
+<button
+    data-lumina-tooltip="This is a tooltip."
+    data-lumina-tooltip-placement="top"
+>
+    Hover me
+</button>
+```
+
+### Transition Link
+
+```html
+<a
+    href="./transition-demo.html"
+    data-lumina-transition
+    data-lumina-transition-effect="glow"
+    data-lumina-transition-delay="360"
+>
+    Open page
+</a>
+```
+
+---
+
+## Accessibility Controls
+
+The AccessibilityPlugin supports independent visual and reading adjustments.
+
+Color blindness filters are exclusive, meaning only one can be active at a time:
+
+```html
+<button data-lumina-accessibility-action="toggle-filter-protanopia">
+    Protanopia
+</button>
+
+<button data-lumina-accessibility-action="toggle-filter-deuteranopia">
+    Deuteranopia
+</button>
+
+<button data-lumina-accessibility-action="toggle-filter-tritanopia">
+    Tritanopia
+</button>
+
+<button data-lumina-accessibility-action="toggle-filter-achromatopsia">
+    Achromatopsia
+</button>
+```
+
+Visual and reading adjustments can be combined:
+
+```html
+<button data-lumina-accessibility-action="toggle-reduced-motion">
+    Reduce motion
+</button>
+
+<button data-lumina-accessibility-action="toggle-inverted-colors">
+    Invert colors
+</button>
+
+<button data-lumina-accessibility-action="toggle-high-contrast">
+    High contrast
+</button>
+
+<button data-lumina-accessibility-action="toggle-focus-highlight">
+    Highlight focus
+</button>
+
+<button data-lumina-accessibility-action="toggle-large-font">
+    Larger font
+</button>
+
+<button data-lumina-accessibility-action="toggle-dyslexia-mode">
+    Dyslexia mode
+</button>
+```
+
+---
+
+## OpenDyslexic Font Support
+
+The project supports a custom dyslexia-friendly font through a CSS variable.
+
+Example:
 
 ```css
-:root[data-theme="light"] {
-    --lumina-transition-bg: #f8fafc;
-    --lumina-transition-glow: rgba(124, 58, 237, .34);
-    --lumina-transition-glow-secondary: rgba(6, 182, 212, .26);
-    --lumina-transition-sheen: rgba(15, 23, 42, .28);
-
-    --lumina-constellation-color: rgba(15, 23, 42, .42);
-    --lumina-constellation-line-color: rgba(6, 182, 212, .38);
+@font-face {
+    font-family: "OpenDyslexic";
+    src:
+        url("/fonts/OpenDyslexic-Regular.otf")
+        format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
-:root[data-theme="dark"] {
-    --lumina-transition-bg: #020617;
-    --lumina-transition-glow: rgba(167, 139, 250, .36);
-    --lumina-transition-glow-secondary: rgba(34, 211, 238, .28);
-    --lumina-transition-sheen: rgba(255, 255, 255, .22);
+@font-face {
+    font-family: "OpenDyslexic";
+    src:
+        url("/fonts/OpenDyslexic-Bold.otf")
+        format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
-    --lumina-constellation-color: rgba(226, 232, 240, .58);
-    --lumina-constellation-line-color: rgba(34, 211, 238, .48);
+@font-face {
+    font-family: "OpenDyslexic";
+    src:
+        url("/fonts/OpenDyslexic-Italic.otf")
+        format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenDyslexic";
+    src:
+        url("/fonts/OpenDyslexic-BoldItalic.otf")
+        format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+:root {
+    --lumina-dyslexia-font-family:
+        "OpenDyslexic",
+        Arial,
+        Verdana,
+        Tahoma,
+        sans-serif;
 }
 ```
 
@@ -516,40 +384,26 @@ Exemplo:
 
 ## Roadmap
 
-Próximas etapas planejadas:
-
-- StormPlugin
-- Icons
-- AccessibilityPlugin
-- documentação final de API
-- empacotamento para publicação
-- testes automatizados
-- exemplos de integração com projetos reais
+- Improve documentation for each plugin
+- Add full API reference
+- Add examples for framework integrations
+- Prepare package entrypoints for npm distribution
+- Add automated tests
+- Split the showcase site into a dedicated app or workspace
+- Publish the first public package version
 
 ---
 
-## Boas práticas
+## Development Notes
 
-Ao integrar o LuminaFX em outro sistema, você não precisa replicar o playground inteiro.
+This repository currently contains both the LuminaFX source code and its showcase site.
 
-O playground possui código extra apenas para demonstração:
+The showcase is used as a living documentation page and as a manual testing environment for the plugins.
 
-```txt
-playground/template.ts
-playground/styles.ts
-playground/connectDemoActions.ts
-```
-
-Em um projeto real, normalmente basta inicializar os plugins e chamar APIs como `shimmer.pulse()` ou `toast.success()` quando o fluxo da aplicação exigir.
+A future version may split the site into a separate project that consumes LuminaFX as a real package dependency.
 
 ---
 
-## Licença
+## License
 
-Defina aqui a licença do projeto.
-
-Exemplo:
-
-```txt
-MIT
-```
+MIT © Pedro Godoy

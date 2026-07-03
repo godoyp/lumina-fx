@@ -1,12 +1,40 @@
 {
   "name": "lumina-fx",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "A lightweight TypeScript plugin framework for premium UI effects, transitions, accessibility tools and interactive frontend experiences.",
   "type": "module",
+  "author": "Pedro Godoy",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "ui",
+    "effects",
+    "animation",
+    "frontend",
+    "plugins",
+    "transitions",
+    "accessibility",
+    "shimmer",
+    "spotlight",
+    "theme",
+    "dropdown",
+    "toast",
+    "tooltip"
+  ],
+  "homepage": "https://github.com/godoyp/lumina-fx#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godoyp/lumina-fx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/godoyp/lumina-fx/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "tsc --noEmit"
   },
   "devDependencies": {
     "typescript": "~6.0.2",
