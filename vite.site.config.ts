@@ -5,6 +5,12 @@ export default defineConfig({
 
     build: {
         outDir: "site-dist",
-        emptyOutDir: true
+        emptyOutDir: true,
+        rollupOptions: {
+            input: {
+                main: "index.html",
+                transitionDemo: "transition-demo.html"
+            }
+        }
     }
 });
