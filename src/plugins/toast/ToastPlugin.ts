@@ -1,10 +1,7 @@
-import { BasePlugin } from "../../core";
-
-export type ToastType =
-    | "success"
-    | "error"
-    | "info"
-    | "warning";
+import {
+    BasePlugin,
+    type ToastType
+} from "../../core";
 
 export type ToastPosition =
     | "top-right"

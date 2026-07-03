@@ -49,7 +49,7 @@
   "scripts": {
     "dev": "vite --config vite.site.config.ts",
     "build": "npm run build:lib",
-    "build:lib": "tsc -p tsconfig.types.json && vite build",
+    "build:lib": "vite build && tsc -p tsconfig.types.json",
     "build:site": "vite build --config vite.site.config.ts",
     "preview": "vite preview --config vite.site.config.ts",
     "check": "tsc -p tsconfig.check.json"
