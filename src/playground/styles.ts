@@ -562,6 +562,7 @@ const playgroundStyles = `
 
     .hero-card.lumina-spotlight::before,
     .card.lumina-spotlight::before {
+        border-radius: inherit;
         z-index: 3;
     }
 
@@ -687,6 +688,15 @@ const playgroundStyles = `
         --toast-demo-glow: rgba(254, 202, 202, .32);
         --toast-demo-border: rgba(239, 68, 68, .48);
         --toast-demo-shadow: rgba(239, 68, 68, .24);
+    }
+
+
+    .cascade-demo-controls {
+        margin-top: 18px;
+    }
+
+    .cascade-demo-list.is-cascade-demo-hidden {
+        pointer-events: none;
     }
 
     .cascade-demo-list {
@@ -829,6 +839,48 @@ const playgroundStyles = `
     .accessibility-demo-grid button {
         padding: 10px 14px;
         font-size: 14px;
+        color: var(--fg);
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: none;
+    }
+
+    .accessibility-demo-grid button:hover {
+        box-shadow:
+            0 16px 36px rgba(0, 0, 0, .14);
+    }
+
+    .accessibility-demo-grid button.is-accessibility-active {
+        color: #ffffff;
+        border-color:
+            color-mix(
+                in srgb,
+                var(--accent) 46%,
+                transparent
+            );
+        background:
+            linear-gradient(
+                135deg,
+                var(--accent),
+                var(--accent-2)
+            );
+        box-shadow:
+            0 16px 40px
+            color-mix(
+                in srgb,
+                var(--accent) 24%,
+                transparent
+            );
+    }
+
+    .accessibility-demo-grid button.is-accessibility-active:hover {
+        box-shadow:
+            0 20px 50px
+            color-mix(
+                in srgb,
+                var(--accent) 30%,
+                transparent
+            );
     }
 
     .transition-demo-link {

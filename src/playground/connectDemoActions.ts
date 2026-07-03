@@ -45,6 +45,11 @@ export function connectDemoActions(
                 playground
             );
 
+            handleCascadeDemoToggle(
+                target,
+                playground
+            );
+
         }
     );
 
@@ -206,6 +211,123 @@ function handleToastError(
 
     playground.toast.error(
         "Não foi possível concluir a operação."
+    );
+
+}
+
+function handleCascadeDemoToggle(
+    target: Element,
+    playground: PlaygroundLumina
+): void {
+
+    const button =
+        target.closest<HTMLButtonElement>(
+            "#toggle-cascade-demo"
+        );
+
+    if (!button) {
+        return;
+    }
+
+    const list =
+        document.querySelector<HTMLElement>(
+            "#cascade-demo-list"
+        );
+
+    if (!list) {
+        return;
+    }
+
+    const items =
+        [...list.querySelectorAll<HTMLElement>(
+            "[data-lumina-cascade-item]"
+        )];
+
+    const isHidden =
+        list.classList.contains(
+            "is-cascade-demo-hidden"
+        );
+
+    if (isHidden) {
+
+        list.classList.remove(
+            "is-cascade-demo-hidden"
+        );
+
+        button.textContent =
+            "Ocultar itens";
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        items.forEach(
+            item => {
+
+                item.classList.remove(
+                    "is-cascade-visible"
+                );
+
+            }
+        );
+
+        window.setTimeout(
+            () => {
+
+                items.forEach(
+                    (item, index) => {
+
+                        window.setTimeout(
+                            () => {
+
+                                item.classList.add(
+                                    "is-cascade-visible"
+                                );
+
+                            },
+                            index * 90
+                        );
+
+                    }
+                );
+
+            },
+            40
+        );
+
+        playground.toast.info(
+            "Itens exibidos em cascata."
+        );
+
+        return;
+
+    }
+
+    list.classList.add(
+        "is-cascade-demo-hidden"
+    );
+
+    button.textContent =
+        "Exibir itens";
+
+    button.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    items.forEach(
+        item => {
+
+            item.classList.remove(
+                "is-cascade-visible"
+            );
+
+        }
+    );
+
+    playground.toast.info(
+        "Itens ocultados."
     );
 
 }

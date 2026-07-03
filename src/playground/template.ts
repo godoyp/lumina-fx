@@ -448,9 +448,21 @@ shimmer.pulse("#status-card");</code></pre>
                                 </p>
                             </div>
 
+                            <div class="demo-row cascade-demo-controls">
+                                <button
+                                    class="ghost-button"
+                                    id="toggle-cascade-demo"
+                                    type="button"
+                                    aria-expanded="true"
+                                >
+                                    Ocultar itens
+                                </button>
+                            </div>
+
                             <div class="demo-row">
                                 <div
                                     class="cascade-demo-list"
+                                    id="cascade-demo-list"
                                     data-lumina-cascade
                                     data-lumina-cascade-once="false"
                                 >

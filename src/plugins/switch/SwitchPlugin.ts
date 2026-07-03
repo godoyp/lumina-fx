@@ -878,9 +878,8 @@ export class SwitchPlugin extends BasePlugin {
                     width: 100%;
                     transition:
                         opacity var(--lumina-switch-duration, 520ms) ease,
-                        filter var(--lumina-switch-duration, 520ms) ease,
                         transform var(--lumina-switch-duration, 520ms) cubic-bezier(.16, 1, .3, 1);
-                    will-change: opacity, filter, transform;
+                    will-change: opacity, transform;
                 }
 
                 .${this.className}-panel[hidden] {
@@ -889,27 +888,23 @@ export class SwitchPlugin extends BasePlugin {
 
                 .${this.className}-entering {
                     opacity: 0;
-                    filter: blur(8px);
-                    transform: scale(.985);
+                    transform: translate3d(0, 8px, 0) scale(.985);
                 }
 
                 .${this.className}-entering.${this.activeClassName} {
                     opacity: 1;
-                    filter: blur(0);
-                    transform: scale(1);
+                    transform: translate3d(0, 0, 0) scale(1);
                 }
 
                 .${this.className}-leaving {
                     opacity: 1;
-                    filter: blur(0);
-                    transform: scale(1);
+                    transform: translate3d(0, 0, 0) scale(1);
                     pointer-events: none;
                 }
 
                 .${this.className}-leaving-active {
                     opacity: 0;
-                    filter: blur(8px);
-                    transform: scale(.985);
+                    transform: translate3d(0, -6px, 0) scale(.985);
                 }
 
                 .${this.triggerActiveClassName} {
@@ -948,7 +943,6 @@ export class SwitchPlugin extends BasePlugin {
                     .${this.className}-leaving,
                     .${this.className}-leaving-active {
                         opacity: 1;
-                        filter: none;
                         transform: none;
                     }
                 }
