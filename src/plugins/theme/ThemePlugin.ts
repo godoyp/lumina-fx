@@ -47,6 +47,12 @@ export class ThemePlugin extends BasePlugin {
 
     private readonly toggleSelector?: string;
 
+    private isFirefox(): boolean {
+
+        return navigator.userAgent.includes("Firefox/");
+
+    }
+
     private readonly unsubscribeToggleListeners: Array<() => void> = [];
 
     private currentTheme: LuminaTheme | null = null;
@@ -261,7 +267,7 @@ export class ThemePlugin extends BasePlugin {
         event?: MouseEvent
     ): void {
 
-        if (this.transition === "view") {
+        if (this.transition === "view" && !this.isFirefox() && "startViewTransition" in document) {
 
             this.runViewTransition(
                 action,
@@ -434,6 +440,22 @@ export class ThemePlugin extends BasePlugin {
 
                 ::view-transition-new(root) {
                     z-index: 2;
+                }
+
+                :root,
+                body,
+                .card,
+                .hero-card,
+                .nav,
+                .dropdown-menu,
+                .plugin-item,
+                .status-card,
+                .switch-demo-panel {
+                    transition:
+                        background-color 220ms ease,
+                        color 220ms ease,
+                        border-color 220ms ease,
+                        box-shadow 220ms ease;
                 }
 
                 .lumina-theme-transitioning::view-transition-new(root) {

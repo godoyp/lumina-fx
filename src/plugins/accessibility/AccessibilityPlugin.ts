@@ -90,6 +90,12 @@ export class AccessibilityPlugin extends BasePlugin {
 
     private readonly target: HTMLElement;
 
+    private isFirefox(): boolean {
+
+        return navigator.userAgent.includes("Firefox/");
+
+    }
+
     private state: AccessibilityState = {
         ...defaultState
     };
@@ -440,6 +446,53 @@ export class AccessibilityPlugin extends BasePlugin {
         );
 
     }
+    
+    private resolveColorFilter(
+        filter: Exclude<AccessibilityColorFilter, "none">
+    ): string {
+
+        if (!this.isFirefox()) {
+
+            return `url("#lumina-filter-${filter}")`;
+
+        }
+
+        if (filter === "protanopia") {
+
+            return [
+                "sepia(.22)",
+                "saturate(.82)",
+                "hue-rotate(-12deg)"
+            ].join(" ");
+
+        }
+
+        if (filter === "deuteranopia") {
+
+            return [
+                "sepia(.18)",
+                "saturate(.78)",
+                "hue-rotate(8deg)"
+            ].join(" ");
+
+        }
+
+        if (filter === "tritanopia") {
+
+            return [
+                "sepia(.16)",
+                "saturate(.72)",
+                "hue-rotate(42deg)"
+            ].join(" ");
+
+        }
+
+        return [
+            "grayscale(1)",
+            "contrast(1.06)"
+        ].join(" ");
+
+    }
 
     private createFilterValue(): string {
 
@@ -449,7 +502,9 @@ export class AccessibilityPlugin extends BasePlugin {
         if (this.state.colorFilter !== "none") {
 
             filters.push(
-                `url("#lumina-filter-${this.state.colorFilter}")`
+                this.resolveColorFilter(
+                    this.state.colorFilter
+                )
             );
 
         }
