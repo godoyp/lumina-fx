@@ -4,6 +4,22 @@
   "version": "0.1.0",
   "description": "A lightweight TypeScript plugin framework for premium UI effects, transitions, accessibility tools and interactive frontend experiences.",
   "type": "module",
+  "main": "./dist/lumina-fx.umd.cjs",
+  "module": "./dist/lumina-fx.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/lumina-fx.js",
+      "require": "./dist/lumina-fx.umd.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "author": "Pedro Godoy",
   "license": "MIT",
   "keywords": [
@@ -31,10 +47,12 @@
     "url": "https://github.com/godoyp/lumina-fx/issues"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "check": "tsc --noEmit"
+    "dev": "vite --config vite.site.config.ts",
+    "build": "npm run build:lib",
+    "build:lib": "tsc -p tsconfig.types.json && vite build",
+    "build:site": "vite build --config vite.site.config.ts",
+    "preview": "vite preview --config vite.site.config.ts",
+    "check": "tsc -p tsconfig.check.json"
   },
   "devDependencies": {
     "typescript": "~6.0.2",
