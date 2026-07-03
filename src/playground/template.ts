@@ -32,7 +32,6 @@ export function createPlaygroundTemplate(): string {
                         <a href="#features">Recursos</a>
                         <a href="#plugins">Plugins</a>
                         <a href="#install">Instalação</a>
-                        <a href="#accessibility">Acessibilidade</a>
                     </div>
 
                     <div class="nav-actions">
@@ -933,7 +932,7 @@ shimmer.pulse("#status-card");</code></pre>
                             </p>
 
                             <div class="install-pills">
-                                <code>npm install @lumina/fx</code>
+                                <code>npm install ./lumina-fx</code>
                                 <code>TypeScript first</code>
                                 <code>Data attributes friendly</code>
                             </div>
