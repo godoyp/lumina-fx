@@ -32,7 +32,7 @@ export class SpotlightPlugin extends BasePlugin {
     readonly metadata = {
         name: "spotlight",
         version: "1.0.0",
-        description: "Aplica um brilho radial seguindo o cursor."
+        description: "Applies a radial glow that follows the cursor."
     };
 
     private readonly selector: string;

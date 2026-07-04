@@ -59,7 +59,7 @@ export class SwitchPlugin extends BasePlugin {
     readonly metadata = {
         name: "switch",
         version: "1.0.0",
-        description: "Alterna painéis de conteúdo com animação, altura automática e efeito visual."
+        description: "Alternates content panels with animation, auto-height, and visual effects."
     };
 
     private readonly selector: string;
@@ -247,9 +247,11 @@ export class SwitchPlugin extends BasePlugin {
             }
 
             const panels =
-                [...container.querySelectorAll<HTMLElement>(
-                    this.panelSelector
-                )];
+                Array.from(
+                    container.querySelectorAll<HTMLElement>(
+                        this.panelSelector
+                    )
+                );
 
             if (panels.length === 0) {
                 continue;

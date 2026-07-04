@@ -77,7 +77,7 @@ export class AccessibilityPlugin extends BasePlugin {
     readonly metadata = {
         name: "accessibility",
         version: "1.0.0",
-        description: "Fornece controles reutilizáveis de acessibilidade visual e leitura."
+        description: "Provides reusable visual accessibility and reading controls."
     };
 
     private readonly selector: string;

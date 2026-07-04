@@ -54,7 +54,7 @@ export class ToastPlugin extends BasePlugin {
     readonly metadata = {
         name: "toast",
         version: "1.0.0",
-        description: "Exibe notificações temporárias com animação e efeito visual."
+        description: "Displays temporary notifications with animation and a visual effect."
     };
 
     private readonly containerId: string;

@@ -67,7 +67,7 @@ export class TransitionPlugin extends BasePlugin {
     readonly metadata = {
         name: "transition",
         version: "1.0.0",
-        description: "Executa transições visuais antes de navegar entre páginas."
+        description: "Executes visual transitions before navigating between pages."
     };
 
     private readonly selector: string;

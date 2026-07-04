@@ -118,7 +118,7 @@ export class StormPlugin extends BasePlugin {
     readonly metadata = {
         name: "storm",
         version: "1.0.0",
-        description: "Renderiza uma tempestade digital em canvas como background ou dentro de containers."
+        description: "Renders a digital storm on a canvas as a background or within containers."
     };
 
     private readonly selector: string;

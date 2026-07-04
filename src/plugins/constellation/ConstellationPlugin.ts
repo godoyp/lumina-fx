@@ -102,7 +102,7 @@ export class ConstellationPlugin extends BasePlugin {
     readonly metadata = {
         name: "constellation",
         version: "1.0.0",
-        description: "Renderiza partículas conectadas em canvas como background ou dentro de containers."
+        description: "Renders connected particles on a canvas as a background or within containers."
     };
 
     private readonly selector: string;

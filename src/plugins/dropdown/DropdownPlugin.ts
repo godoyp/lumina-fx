@@ -47,7 +47,7 @@ export class DropdownPlugin extends BasePlugin {
     readonly metadata = {
         name: "dropdown",
         version: "1.0.0",
-        description: "Gerencia dropdowns reutilizáveis por data attributes."
+        description: "Manages reusable dropdowns using data attributes."
     };
 
     private readonly triggerSelector: string;

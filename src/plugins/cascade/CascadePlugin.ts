@@ -48,7 +48,7 @@ export class CascadePlugin extends BasePlugin {
     readonly metadata = {
         name: "cascade",
         version: "1.0.0",
-        description: "Revela grupos de elementos em sequência com atraso progressivo."
+        description: "Reveals groups of elements in sequence with a progressive delay."
     };
 
     private readonly selector: string;
@@ -220,18 +220,21 @@ export class CascadePlugin extends BasePlugin {
     ): HTMLElement[] {
 
         const explicitItems =
-            [...container.querySelectorAll<HTMLElement>(
-                this.itemSelector
-            )];
+            Array.from(
+                container.querySelectorAll<HTMLElement>(
+                    this.itemSelector
+                )
+            );
 
         if (explicitItems.length > 0) {
             return explicitItems;
         }
 
-        return [...container.children]
+        return Array.from(container.children)
             .filter(
-                child => child instanceof HTMLElement
-            ) as HTMLElement[];
+                (child): child is HTMLElement =>
+                    child instanceof HTMLElement
+            );
 
     }
 

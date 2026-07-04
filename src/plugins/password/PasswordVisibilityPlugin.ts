@@ -33,7 +33,7 @@ export class PasswordVisibilityPlugin extends BasePlugin {
     readonly metadata = {
         name: "password-visibility",
         version: "1.0.0",
-        description: "Alterna a visibilidade de campos de senha."
+        description: "Toggles the visibility of password fields."
     };
 
     private readonly toggleSelector: string;

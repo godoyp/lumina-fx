@@ -24,7 +24,7 @@ export class ShimmerPlugin extends BasePlugin {
     readonly metadata = {
         name: "shimmer",
         version: "1.0.0",
-        description: "Executa feedback visual de atualização em elementos."
+        description: "Provides visual update feedback on elements."
     };
 
     private readonly className: string;

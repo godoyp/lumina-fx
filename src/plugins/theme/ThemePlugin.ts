@@ -32,7 +32,7 @@ export class ThemePlugin extends BasePlugin {
     readonly metadata = {
         name: "theme",
         version: "1.0.0",
-        description: "Gerencia tema claro, escuro e preferência do sistema."
+        description: "Manages light and dark themes and system preference."
     };
 
     private readonly defaultTheme: ThemePreference;
@@ -684,7 +684,7 @@ export class ThemePlugin extends BasePlugin {
             "lumina-theme-fallback-content";
 
         const children =
-            [...document.body.children];
+            Array.from(document.body.children);
 
         for (const child of children) {
 
@@ -763,8 +763,10 @@ export class ThemePlugin extends BasePlugin {
         );
 
         const descendants =
-            element.querySelectorAll<HTMLElement>(
-                "*"
+            Array.from(
+                element.querySelectorAll<HTMLElement>(
+                    "*"
+                )
             );
 
         for (const descendant of descendants) {
@@ -804,16 +806,18 @@ export class ThemePlugin extends BasePlugin {
         }
 
         const dynamicElements =
-            element.querySelectorAll<HTMLElement>(
-                [
-                    "canvas",
-                    ".ambient-background",
-                    ".refresh-overlay",
-                    "[data-lumina-background]",
-                    "[data-lumina-shimmer-layer]",
-                    "[data-lumina-constellation]",
-                    "[data-lumina-storm]"
-                ].join(",")
+            Array.from(
+                element.querySelectorAll<HTMLElement>(
+                    [
+                        "canvas",
+                        ".ambient-background",
+                        ".refresh-overlay",
+                        "[data-lumina-background]",
+                        "[data-lumina-shimmer-layer]",
+                        "[data-lumina-constellation]",
+                        "[data-lumina-storm]"
+                    ].join(",")
+                )
             );
 
         for (const dynamicElement of dynamicElements) {

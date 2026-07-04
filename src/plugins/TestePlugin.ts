@@ -26,7 +26,7 @@ export class TestPlugin extends BasePlugin {
         );
 
         this.logger.info(
-            "DOM funcionando."
+            "DOM working."
         );
 
     }

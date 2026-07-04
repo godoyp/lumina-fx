@@ -39,7 +39,7 @@ export class TooltipPlugin extends BasePlugin {
     readonly metadata = {
         name: "tooltip",
         version: "1.0.0",
-        description: "Exibe tooltips com posicionamento automático e efeito visual."
+        description: "Displays tooltips with automatic positioning and a visual effect."
     };
 
     private readonly selector: string;

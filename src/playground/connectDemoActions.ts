@@ -137,7 +137,7 @@ function handlePulseAll(
     if (statusText) {
 
         statusText.textContent =
-            `Atualização geral em ${new Date().toLocaleTimeString()}`;
+            `Full update at ${new Date().toLocaleTimeString()}`;
 
     }
 
@@ -150,7 +150,7 @@ function handlePulseAll(
     );
 
     playground.toast.info(
-        "Atualização geral executada."
+        "Full update performed."
     );
 
 }
