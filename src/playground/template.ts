@@ -106,18 +106,6 @@ export function createPlaygroundTemplate(): string {
                             data-lumina-shimmer-layer
                         ></div>
 
-                        <div class="hero-preview-header refresh-content">
-                            <span class="preview-status"></span>
-                            <strong>Live preview</strong>
-                            <button
-                                class="ghost-button mini-button"
-                                id="pulse-hero"
-                                type="button"
-                            >
-                                Atualizar
-                            </button>
-                        </div>
-
                         <div
                             class="terminal refresh-content"
                             data-lumina-spotlight
@@ -244,11 +232,10 @@ shimmer.pulse("#status-card");</code></pre>
                         </p>
                     </div>
 
-                    <div class="grid" data-lumina-cascade>
+                    <div class="grid">
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -278,7 +265,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card dropdown-card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -321,7 +307,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -361,7 +346,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -412,7 +396,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -456,7 +439,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -540,7 +522,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -571,7 +552,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -619,7 +599,6 @@ shimmer.pulse("#status-card");</code></pre>
                             class="card storm-card"
                             data-lumina-storm
                             data-lumina-storm-mode="contained"
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -651,7 +630,6 @@ shimmer.pulse("#status-card");</code></pre>
                             class="card constellation-card"
                             data-lumina-constellation
                             data-lumina-constellation-mode="contained"
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -682,7 +660,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -741,7 +718,6 @@ shimmer.pulse("#status-card");</code></pre>
                         <article
                             class="card"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"
@@ -775,7 +751,6 @@ shimmer.pulse("#status-card");</code></pre>
                             class="card accessibility-card"
                             id="accessibility"
                             data-lumina-spotlight
-                            data-lumina-cascade-item
                         >
                             <div
                                 class="refresh-overlay"

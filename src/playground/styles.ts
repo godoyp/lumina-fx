@@ -505,7 +505,7 @@ const playgroundStyles = `
     .parallax-band-content span {
         display: inline-block;
         font-size: clamp(36px, 6vw, 78px);
-        line-height: .95;
+        line-height: 1.5;
         font-weight: 950;
         letter-spacing: -.055em;
         background:
@@ -1356,21 +1356,6 @@ const playgroundStyles = `
         gap: 14px;
     }
 
-    .hero-preview-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 12px;
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        background:
-            color-mix(
-                in srgb,
-                var(--card-soft) 76%,
-                transparent
-            );
-    }
-
     .preview-status {
         width: 10px;
         height: 10px;
@@ -1524,7 +1509,7 @@ const playgroundStyles = `
     }
 
     .final-cta {
-        padding: 70px 0 28px;
+        padding: 20px 0 28px;
     }
 
     .final-cta-card {
