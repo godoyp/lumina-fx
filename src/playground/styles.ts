@@ -54,6 +54,12 @@ const playgroundStyles = `
         margin: 0;
         min-height: 100%;
         background: var(--bg);
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
+    }
+
+    *::-webkit-scrollbar {
+        display: none;
     }
 
     body {
@@ -133,10 +139,6 @@ const playgroundStyles = `
         --lumina-transition-sheen: rgba(15, 23, 42, .38);
         --lumina-storm-color: rgba(15, 23, 42, .42);
         --lumina-storm-glow: rgba(6, 182, 212, .38);
-        --lumina-ambient-constellation-color: rgba(15, 23, 42, .34);
-        --lumina-ambient-constellation-line-color: rgba(6, 182, 212, .34);
-        --lumina-ambient-storm-color: rgba(15, 23, 42, .38);
-        --lumina-ambient-storm-glow: rgba(6, 182, 212, .36);
     }
 
     :root[data-theme="dark"] {
@@ -162,10 +164,6 @@ const playgroundStyles = `
         --lumina-transition-sheen: rgba(255, 255, 255, .38);
         --lumina-storm-color: rgba(226, 232, 240, .72);
         --lumina-storm-glow: rgba(34, 211, 238, .48);
-        --lumina-ambient-constellation-color: rgba(226, 232, 240, .54);
-        --lumina-ambient-constellation-line-color: rgba(34, 211, 238, .44);
-        --lumina-ambient-storm-color: rgba(226, 232, 240, .64);
-        --lumina-ambient-storm-glow: rgba(34, 211, 238, .52);
     }
 
     * {
@@ -223,8 +221,45 @@ const playgroundStyles = `
         z-index: 1;
     }
 
+    .app::before {
+        content: "";
+        position: fixed;
+        inset: -20%;
+        z-index: -1;
+        pointer-events: none;
+        background:
+            radial-gradient(
+                circle at 18% 12%,
+                color-mix(
+                    in srgb,
+                    var(--accent) 32%,
+                    transparent
+                ),
+                transparent 34rem
+            ),
+            radial-gradient(
+                circle at 82% 18%,
+                color-mix(
+                    in srgb,
+                    var(--accent-2) 32%,
+                    transparent
+                ),
+                transparent 32rem
+            ),
+            radial-gradient(
+                circle at 50% 92%,
+                color-mix(
+                    in srgb,
+                    #7c3aed 28%,
+                    transparent
+                ),
+                transparent 36rem
+            );
+        opacity: 1;
+    }
+
     .container {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
     }
 
@@ -277,15 +312,16 @@ const playgroundStyles = `
         background: var(--card);
         border: 1px solid var(--border);
         box-shadow: none;
+        border-radius: 999px;
     }
 
     .hero {
-        padding: 88px 0 64px;
+        padding: 56px 0 64px;
     }
 
     .hero-grid {
         display: grid;
-        grid-template-columns: 1.15fr .85fr;
+        grid-template-columns: 1fr 1fr;
         gap: 32px;
         align-items: center;
     }
@@ -914,45 +950,6 @@ const playgroundStyles = `
             0 20px 50px rgba(0, 0, 0, .2);
     }
 
-    .ambient-background {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        pointer-events: none;
-        opacity: 0;
-        visibility: hidden;
-        transition:
-            opacity .52s cubic-bezier(.16, 1, .3, 1),
-            visibility .52s cubic-bezier(.16, 1, .3, 1);
-    }
-
-    :root[data-lumina-ambient-background="constellation"] .ambient-background-constellation {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    :root[data-lumina-ambient-background="storm"] .ambient-background-storm {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .ambient-background-constellation {
-        --lumina-constellation-color: var(--lumina-ambient-constellation-color);
-        --lumina-constellation-line-color: var(--lumina-ambient-constellation-line-color);
-    }
-
-    .ambient-background-storm {
-        --lumina-storm-color: var(--lumina-ambient-storm-color);
-        --lumina-storm-glow: var(--lumina-ambient-storm-glow);
-    }
-
-    .ambient-toggle-button {
-        white-space: nowrap;
-    }
-
     .constellation-card {
         min-height: 360px;
         position: relative;
@@ -1093,14 +1090,66 @@ const playgroundStyles = `
 
     .tag {
         color: var(--accent);
-        font-size: 13px;
+        font-size: 24px;
+        line-height: 2;
         font-weight: 900;
     }
 
     .footer {
-        padding: 48px 0 72px;
+        position: relative;
+        z-index: 2;
+        margin-top: 56px;
+        border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+        min-height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
         color: var(--muted);
-        text-align: center;
+        font-size: 14px;
+    }
+
+    .footer-github-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 16px;
+        color: var(--fg);
+        text-decoration: none;
+        font-size: 14px;
+        transition:
+            transform .18s ease,
+            box-shadow .18s ease,
+            opacity .18s ease;
+    }
+
+    .footer-github-link:hover {
+        color: var(--fg);
+        transform: translateY(-1px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+    }
+
+    .footer-github-link:active {
+        transform: translateY(0) scale(.98);
+    }
+
+    .footer-github-icon {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width: 640px) {
+        .footer-inner {
+            min-height: 96px;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
     }
 
     @media (max-width: 860px) {
@@ -1192,7 +1241,7 @@ const playgroundStyles = `
         min-height: calc(100vh - 72px);
         display: grid;
         align-items: center;
-        padding: 96px 0 72px;
+        padding: 46px 0 72px;
     }
 
     .hero-copy {

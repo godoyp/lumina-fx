@@ -1,20 +1,6 @@
 export function createPlaygroundTemplate(): string {
 
     return `
-        <div
-            class="ambient-background ambient-background-constellation"
-            data-lumina-background="constellation"
-            data-lumina-constellation
-            data-lumina-constellation-mode="background"
-        ></div>
-
-        <div
-            class="ambient-background ambient-background-storm"
-            data-lumina-background="storm"
-            data-lumina-storm
-            data-lumina-storm-mode="background"
-        ></div>
-
         <main class="app" id="main-content">
             <nav class="nav">
                 <div class="container nav-inner">
@@ -36,14 +22,6 @@ export function createPlaygroundTemplate(): string {
 
                     <div class="nav-actions">
                         <button
-                            class="ghost-button ambient-toggle-button"
-                            id="toggle-ambient-background"
-                            type="button"
-                        >
-                            Background: Constellation
-                        </button>
-
-                        <button
                             class="ghost-button"
                             data-lumina-theme-toggle
                             type="button"
@@ -62,8 +40,12 @@ export function createPlaygroundTemplate(): string {
                         </span>
 
                         <h1>
-                            Premium UI effects for modern frontends.
+                            Lumina FX
                         </h1>
+
+                        <h2>
+                            Premium UI effects for modern frontends.
+                        </h2>
 
                         <p>
                             LuminaFX reúne efeitos visuais, microinterações,
@@ -449,7 +431,6 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="demo-row cascade-demo-controls">
                                 <button
-                                    class="ghost-button"
                                     id="toggle-cascade-demo"
                                     type="button"
                                     aria-expanded="true"
@@ -1102,8 +1083,29 @@ toast.success("LuminaFX iniciado!");</code></pre>
 
             <footer class="footer">
                 <div class="container footer-inner">
-                    <strong>LuminaFX</strong>
-                    <span>Documentação viva, playground e showcase oficial do projeto.</span>
+                    <span>
+                        LuminaFX · Built by Pedro Godoy
+                    </span>
+                    <a
+                        class="ghost-button footer-github-link"
+                        href="https://github.com/godoyp/lumina-fx"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Abrir repositório LuminaFX no GitHub"
+                    >
+                        <svg
+                            class="footer-github-icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.866-.014-1.699-2.782.605-3.369-1.343-3.369-1.343-.455-1.158-1.11-1.467-1.11-1.467-.908-.621.069-.608.069-.608 1.004.071 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.594 1.028 2.687 0 3.848-2.338 4.695-4.566 4.944.359.31.678.922.678 1.858 0 1.341-.012 2.423-.012 2.752 0 .268.18.58.688.482A10.025 10.025 0 0 0 22 12.021C22 6.484 17.523 2 12 2Z"
+                            />
+                        </svg>
+
+                        GitHub
+                    </a>
                 </div>
             </footer>
         </main>
