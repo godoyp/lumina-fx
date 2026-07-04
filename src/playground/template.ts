@@ -7,17 +7,17 @@ export function createPlaygroundTemplate(): string {
                     <a
                         class="brand"
                         href="#home"
-                        aria-label="Ir para o início"
+                        aria-label="Go to home"
                     >
                         <div class="brand-mark">✦</div>
 
                         <span>LuminaFX</span>
                     </a>
 
-                    <div class="nav-links" aria-label="Navegação principal">
-                        <a href="#features">Recursos</a>
+                    <div class="nav-links" aria-label="Main navigation">
+                        <a href="#features">Features</a>
                         <a href="#plugins">Plugins</a>
-                        <a href="#install">Instalação</a>
+                        <a href="#install">Installation</a>
                     </div>
 
                     <div class="nav-actions">
@@ -26,7 +26,7 @@ export function createPlaygroundTemplate(): string {
                             data-lumina-theme-toggle
                             type="button"
                         >
-                            Alternar tema
+                            Toggle theme
                         </button>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ export function createPlaygroundTemplate(): string {
                 <div class="container hero-grid">
                     <div class="hero-copy">
                         <span class="eyebrow">
-                            Biblioteca visual modular em TypeScript
+                            Modular visual library in TypeScript
                         </span>
 
                         <h1>
@@ -48,9 +48,9 @@ export function createPlaygroundTemplate(): string {
                         </h2>
 
                         <p>
-                            LuminaFX reúne efeitos visuais, microinterações,
-                            transições, feedbacks e controles de acessibilidade
-                            em uma arquitetura baseada em plugins.
+                            LuminaFX brings together visual effects, microinteractions,
+                            transitions, feedback, and accessibility controls
+                            in a plugin-based architecture.
                         </p>
 
                         <div class="hero-actions">
@@ -58,14 +58,14 @@ export function createPlaygroundTemplate(): string {
                                 class="primary-link"
                                 href="#plugins"
                             >
-                                Ver plugins
+                                View plugins
                             </a>
 
                             <a
                                 class="secondary-link"
                                 href="#install"
                             >
-                                Começar agora
+                                Get started
                             </a>
 
                             <button
@@ -73,11 +73,11 @@ export function createPlaygroundTemplate(): string {
                                 id="pulse-all"
                                 type="button"
                             >
-                                Simular atualização
+                                Simulate update
                             </button>
                         </div>
 
-                        <div class="hero-metrics" aria-label="Resumo do projeto">
+                        <div class="hero-metrics" aria-label="Project summary">
                             <div class="hero-metric">
                                 <strong>13+</strong>
                                 <span>plugins</span>
@@ -85,12 +85,12 @@ export function createPlaygroundTemplate(): string {
 
                             <div class="hero-metric">
                                 <strong>0 deps</strong>
-                                <span>core independente</span>
+                                <span>independent core</span>
                             </div>
 
                             <div class="hero-metric">
                                 <strong>TS</strong>
-                                <span>tipado e modular</span>
+                                <span>typed and modular</span>
                             </div>
                         </div>
                     </div>
@@ -152,15 +152,15 @@ shimmer.pulse("#status-card");</code></pre>
             <section class="section" id="features">
                 <div class="container">
                     <div class="section-header section-header-centered">
-                        <span class="section-kicker">Por que LuminaFX?</span>
+                        <span class="section-kicker">Why LuminaFX?</span>
 
                         <h2>
-                            Efeitos bonitos, reutilizáveis e fáceis de encaixar.
+                            Beautiful, reusable effects that are easy to integrate.
                         </h2>
 
                         <p>
-                            O objetivo é entregar uma camada visual premium sem prender
-                            seu projeto a um framework específico.
+                            The goal is to deliver a premium visual layer without locking
+                            your project into a specific framework.
                         </p>
                     </div>
 
@@ -173,8 +173,8 @@ shimmer.pulse("#status-card");</code></pre>
                             <span class="feature-icon">⚡</span>
                             <h3>Plugin-based</h3>
                             <p>
-                                Use só o que precisar. Cada plugin é independente,
-                                configurável e inicializado pelo core.
+                                Use only what you need. Each plugin is independent,
+                                configurable, and initialized by the core.
                             </p>
                         </article>
 
@@ -184,10 +184,10 @@ shimmer.pulse("#status-card");</code></pre>
                             data-lumina-cascade-item
                         >
                             <span class="feature-icon">🎛</span>
-                            <h3>Declarativo ou programático</h3>
+                            <h3>Declarative or programmatic</h3>
                             <p>
-                                Conecte via data attributes no HTML ou controle
-                                diretamente pela API do plugin.
+                                Connect through data attributes in HTML or control it
+                                directly through the plugin API.
                             </p>
                         </article>
 
@@ -197,10 +197,10 @@ shimmer.pulse("#status-card");</code></pre>
                             data-lumina-cascade-item
                         >
                             <span class="feature-icon">♿</span>
-                            <h3>Acessibilidade integrada</h3>
+                            <h3>Built-in accessibility</h3>
                             <p>
-                                Inclui controles de leitura, contraste, foco,
-                                redução de movimento e filtros visuais.
+                                Includes reading, contrast, focus,
+                                reduced motion, and visual filter controls.
                             </p>
                         </article>
                     </div>
@@ -211,8 +211,8 @@ shimmer.pulse("#status-card");</code></pre>
                 <div class="container parallax-band-content">
                     <span>Effects that feel alive.</span>
                     <p>
-                        Transições, feedbacks e microinterações trabalhando juntos
-                        para deixar qualquer interface mais fluida.
+                        Transitions, feedback, and microinteractions working together
+                        to make any interface feel more fluid.
                     </p>
                 </div>
             </section>
@@ -220,15 +220,15 @@ shimmer.pulse("#status-card");</code></pre>
             <section class="section" id="plugins">
                 <div class="container">
                     <div class="section-header">
-                        <span class="section-kicker">Showcase interativo</span>
+                        <span class="section-kicker">Interactive showcase</span>
 
                         <h2>
-                            Plugins disponíveis
+                            Available plugins
                         </h2>
 
                         <p>
-                            Os cards abaixo não são imagens: cada demonstração está
-                            rodando com o próprio plugin da LuminaFX.
+                            The cards below are not images: each demo is
+                            running with LuminaFX's own plugin.
                         </p>
                     </div>
 
@@ -245,10 +245,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">ThemePlugin</span>
-                                <h3>Tema com View Transition</h3>
+                                <h3>Theme with View Transition</h3>
                                 <p>
-                                    Alterna entre light/dark usando uma transição radial suave
-                                    baseada na posição real do clique.
+                                    Switches between light and dark using a smooth radial transition
+                                    based on the real click position.
                                 </p>
                             </div>
 
@@ -257,7 +257,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     data-lumina-theme-toggle
                                     type="button"
                                 >
-                                    Alternar tema
+                                    Toggle theme
                                 </button>
                             </div>
                         </article>
@@ -274,10 +274,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">DropdownPlugin</span>
-                                <h3>Dropdown com glow</h3>
+                                <h3>Dropdown with glow</h3>
                                 <p>
-                                    Dropdown independente, com fechamento por clique externo,
-                                    Escape, posicionamento configurável e efeito opcional.
+                                    Independent dropdown with outside-click close,
+                                    Escape support, configurable placement, and an optional effect.
                                 </p>
                             </div>
 
@@ -287,7 +287,7 @@ shimmer.pulse("#status-card");</code></pre>
                                         data-lumina-dropdown-trigger="docs-menu"
                                         type="button"
                                     >
-                                        Abrir documentação
+                                        Open documentation
                                     </button>
 
                                     <div
@@ -297,7 +297,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     >
                                         <strong>Dropdown Lumina</strong>
                                         <p>
-                                            Esse menu foi conectado automaticamente pelo plugin.
+                                            This menu was automatically connected by the plugin.
                                         </p>
                                     </div>
                                 </div>
@@ -316,16 +316,16 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">PasswordVisibilityPlugin</span>
-                                <h3>Visibilidade de senha</h3>
+                                <h3>Password visibility</h3>
                                 <p>
-                                    Alterna campos de senha sem depender de IDs internos do framework.
-                                    O alvo é definido pelo HTML.
+                                    Toggles password fields without relying on internal framework IDs.
+                                    The target is defined by the HTML.
                                 </p>
                             </div>
 
                             <div class="password-demo">
                                 <label for="demo-password">
-                                    Senha de demonstração
+                                    Demo password
                                 </label>
 
                                 <input
@@ -338,7 +338,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     data-lumina-password-toggle="#demo-password"
                                     type="button"
                                 >
-                                    Mostrar senha
+                                    Show password
                                 </button>
                             </div>
                         </article>
@@ -355,10 +355,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">ShimmerPlugin</span>
-                                <h3>Feedback de atualização</h3>
+                                <h3>Update feedback</h3>
                                 <p>
-                                    Dispare o shimmer quando um elemento for atualizado por API,
-                                    WebSocket, cache ou qualquer fluxo do seu sistema.
+                                    Trigger the shimmer when an element is updated by an API,
+                                    WebSocket, cache, or any flow in your system.
                                 </p>
                             </div>
 
@@ -373,12 +373,12 @@ shimmer.pulse("#status-card");</code></pre>
                                 ></div>
 
                                 <div class="status-card-content">
-                                    <strong>Status do sistema</strong>
+                                    <strong>System status</strong>
                                     <p
                                         id="status-text"
                                         style="margin-bottom: 0;"
                                     >
-                                        Aguardando atualização...
+                                        Waiting for update...
                                     </p>
                                 </div>
                             </div>
@@ -388,7 +388,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     id="simulate-update"
                                     type="button"
                                 >
-                                    Simular atualização
+                                    Simulate update
                                 </button>
                             </div>
                         </article>
@@ -405,10 +405,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">CascadePlugin</span>
-                                <h3>Animação em cascata</h3>
+                                <h3>Cascade animation</h3>
                                 <p>
-                                    Revela grupos de elementos em sequência, aplicando atraso progressivo
-                                    entre os itens para criar uma entrada fluida.
+                                    Reveals groups of elements in sequence, applying progressive delay
+                                    between items to create a smooth entrance.
                                 </p>
                             </div>
 
@@ -418,7 +418,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     type="button"
                                     aria-expanded="true"
                                 >
-                                    Ocultar itens
+                                    Hide items
                                 </button>
                             </div>
 
@@ -429,9 +429,9 @@ shimmer.pulse("#status-card");</code></pre>
                                     data-lumina-cascade
                                     data-lumina-cascade-once="false"
                                 >
-                                    <span data-lumina-cascade-item>Primeiro item</span>
-                                    <span data-lumina-cascade-item>Segundo item</span>
-                                    <span data-lumina-cascade-item>Terceiro item</span>
+                                    <span data-lumina-cascade-item>First item</span>
+                                    <span data-lumina-cascade-item>Second item</span>
+                                    <span data-lumina-cascade-item>Third item</span>
                                 </div>
                             </div>
                         </article>
@@ -448,10 +448,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">SwitchPlugin</span>
-                                <h3>Troca de painéis</h3>
+                                <h3>Panel switching</h3>
                                 <p>
-                                    Alterna blocos de conteúdo com animação, altura automática,
-                                    estado ativo nos botões e glow opcional.
+                                    Switches content blocks with animation, automatic height,
+                                    active button state, and optional glow.
                                 </p>
                             </div>
 
@@ -463,7 +463,7 @@ shimmer.pulse("#status-card");</code></pre>
                                         data-lumina-switch-target="overview"
                                         type="button"
                                     >
-                                        Visão geral
+                                        Overview
                                     </button>
 
                                     <button
@@ -481,7 +481,7 @@ shimmer.pulse("#status-card");</code></pre>
                                         data-lumina-switch-target="usage"
                                         type="button"
                                     >
-                                        Uso
+                                        Usage
                                     </button>
                                 </div>
 
@@ -492,7 +492,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     <div data-lumina-switch-panel="overview">
                                         <strong>Overview</strong>
                                         <p>
-                                            O SwitchPlugin controla múltiplos painéis dentro de um container.
+                                            SwitchPlugin controls multiple panels inside a container.
                                         </p>
                                     </div>
 
@@ -500,9 +500,9 @@ shimmer.pulse("#status-card");</code></pre>
                                         data-lumina-switch-panel="api"
                                         hidden
                                     >
-                                        <strong>API declarativa</strong>
+                                        <strong>Declarative API</strong>
                                         <p>
-                                            Use triggers e panels via data attributes, sem escrever handlers.
+                                            Use triggers and panels through data attributes, without writing handlers.
                                         </p>
                                     </div>
 
@@ -510,9 +510,9 @@ shimmer.pulse("#status-card");</code></pre>
                                         data-lumina-switch-panel="usage"
                                         hidden
                                     >
-                                        <strong>Uso em sistemas reais</strong>
+                                        <strong>Usage em sistemas reais</strong>
                                         <p>
-                                            Ideal para previews, detalhes, estados de formulário e conteúdo contextual.
+                                            Ideal for previews, details, form states, and contextual content.
                                         </p>
                                     </div>
                                 </div>
@@ -531,19 +531,19 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">SpotlightPlugin</span>
-                                <h3>Spotlight seguindo o cursor</h3>
+                                <h3>Cursor-following spotlight</h3>
                                 <p>
-                                    Aplica um brilho radial dinâmico no elemento,
-                                    acompanhando a posição do mouse em tempo real.
+                                    Applies a dynamic radial glow to the element,
+                                    following the mouse position in real time.
                                 </p>
 
                                 <div
                                     class="spotlight-preview"
                                     data-lumina-spotlight
                                 >
-                                    <strong>Passe o mouse aqui</strong>
+                                    <strong>Hover here</strong>
                                     <p style="margin-bottom: 0;">
-                                        Esse bloco também usa SpotlightPlugin de forma independente.
+                                        This block also uses SpotlightPlugin independently.
                                     </p>
                                 </div>
                             </div>
@@ -561,10 +561,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">ToastPlugin</span>
-                                <h3>Notificações com glow</h3>
+                                <h3>Notifications with glow</h3>
                                 <p>
-                                    Exibe mensagens temporárias de sucesso, erro, aviso ou informação,
-                                    com animação, fechamento manual e efeito visual opcional.
+                                    Displays temporary success, error, warning, or info messages,
+                                    with animation, manual close, and an optional visual effect.
                                 </p>
                             </div>
 
@@ -574,7 +574,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     id="demo-toast-success"
                                     type="button"
                                 >
-                                    Toast sucesso
+                                    Success toast
                                 </button>
 
                                 <button
@@ -582,7 +582,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     id="demo-toast-info"
                                     type="button"
                                 >
-                                    Toast informação
+                                    Info toast
                                 </button>
 
                                 <button
@@ -590,7 +590,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     id="demo-toast-error"
                                     type="button"
                                 >
-                                    Toast erro
+                                    Error toast
                                 </button>
                             </div>
                         </article>
@@ -609,18 +609,18 @@ shimmer.pulse("#status-card");</code></pre>
                             <div class="refresh-content">
                                 <span class="tag">StormPlugin</span>
 
-                                <h3>Tempestade digital</h3>
+                                <h3>Digital storm</h3>
 
                                 <p>
-                                    Cria linhas rápidas, brilhos e flashes em canvas,
-                                    ideal para backgrounds energéticos e páginas futuristas.
+                                    Creates fast lines, glows, and flashes on canvas,
+                                    ideal for energetic backgrounds and futuristic pages.
                                 </p>
 
                                 <div class="storm-demo-panel">
-                                    <strong>Modo contained</strong>
+                                    <strong>Contained mode</strong>
 
                                     <p>
-                                        O efeito roda dentro deste card sem afetar o layout da página.
+                                        The effect runs inside this card without affecting the page layout.
                                     </p>
                                 </div>
                             </div>
@@ -640,18 +640,18 @@ shimmer.pulse("#status-card");</code></pre>
                             <div class="refresh-content">
                                 <span class="tag">ConstellationPlugin</span>
 
-                                <h3>Constelação interativa</h3>
+                                <h3>Interactive constellation</h3>
 
                                 <p>
-                                    Cria partículas conectadas em canvas,
-                                    ideal para cards premium, heros e áreas com visual tecnológico.
+                                    Creates connected particles on canvas,
+                                    ideal for premium cards, heroes, and tech-inspired areas.
                                 </p>
 
                                 <div class="constellation-demo-panel">
-                                    <strong>Modo contained</strong>
+                                    <strong>Contained mode</strong>
 
                                     <p>
-                                        O efeito roda dentro deste card sem afetar o layout da página.
+                                        The effect runs inside this card without affecting the page layout.
                                     </p>
                                 </div>
                             </div>
@@ -669,17 +669,17 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">TooltipPlugin</span>
-                                <h3>Tooltips com glow</h3>
+                                <h3>Tooltips with glow</h3>
                                 <p>
-                                    Exibe dicas contextuais em hover ou foco, com posicionamento
-                                    configurável e visual premium.
+                                    Displays contextual tips on hover or focus, with configurable
+                                    placement and a premium visual style.
                                 </p>
                             </div>
 
                             <div class="demo-row">
                                 <button
                                     class="ghost-button"
-                                    data-lumina-tooltip="Tooltip no topo com efeito glow."
+                                    data-lumina-tooltip="Tooltip at the top with a glow effect."
                                     data-lumina-tooltip-placement="top"
                                     type="button"
                                 >
@@ -688,7 +688,7 @@ shimmer.pulse("#status-card");</code></pre>
 
                                 <button
                                     class="ghost-button"
-                                    data-lumina-tooltip="Tooltip na esquerda com efeito glow."
+                                    data-lumina-tooltip="Tooltip on the left with a glow effect."
                                     data-lumina-tooltip-placement="left"
                                     type="button"
                                 >
@@ -697,7 +697,7 @@ shimmer.pulse("#status-card");</code></pre>
 
                                 <button
                                     class="ghost-button"
-                                    data-lumina-tooltip="Tooltip em baixo com efeito glow."
+                                    data-lumina-tooltip="Tooltip at the bottom with a glow effect."
                                     data-lumina-tooltip-placement="bottom"
                                     type="button"
                                 >
@@ -706,7 +706,7 @@ shimmer.pulse("#status-card");</code></pre>
 
                                 <button
                                     class="ghost-button"
-                                    data-lumina-tooltip="Tooltip na direita com efeito glow."
+                                    data-lumina-tooltip="Tooltip on the right with a glow effect."
                                     data-lumina-tooltip-placement="right"
                                     type="button"
                                 >
@@ -727,10 +727,10 @@ shimmer.pulse("#status-card");</code></pre>
 
                             <div class="refresh-content">
                                 <span class="tag">TransitionPlugin</span>
-                                <h3>Transição de navegação</h3>
+                                <h3>Navigation transition</h3>
                                 <p>
-                                    Aplica uma transição visual antes de navegar para outra página,
-                                    com glow, brilho e efeito de saída.
+                                    Applies a visual transition before navigating to another page,
+                                    with glow, brightness, and an exit effect.
                                 </p>
                             </div>
 
@@ -742,7 +742,7 @@ shimmer.pulse("#status-card");</code></pre>
                                     data-lumina-transition-effect="glow"
                                     data-lumina-transition-delay="360"
                                 >
-                                    Ir para página de exemplo
+                                    Go to example page
                                 </a>
                             </div>
                         </article>
@@ -761,15 +761,15 @@ shimmer.pulse("#status-card");</code></pre>
                             <div class="refresh-content">
                                 <span class="tag">AccessibilityPlugin</span>
 
-                                <h3>Controles de acessibilidade</h3>
+                                <h3>Accessibility controls</h3>
 
                                 <p>
-                                    Ative filtros e ajustes visuais independentes para adaptar
-                                    a página conforme a necessidade do usuário.
+                                    Enable independent filters and visual adjustments to adapt
+                                    the page to the user’s needs.
                                 </p>
 
                                 <div class="accessibility-group">
-                                    <strong>Filtros de Daltonismo</strong>
+                                    <strong>Color Blindness Filters</strong>
 
                                     <div class="accessibility-demo-grid">
                                         <button
@@ -803,55 +803,55 @@ shimmer.pulse("#status-card");</code></pre>
                                 </div>
 
                                 <div class="accessibility-group">
-                                    <strong>Ajustes Visuais</strong>
+                                    <strong>Visual Adjustments</strong>
 
                                     <div class="accessibility-demo-grid">
                                         <button
                                             data-lumina-accessibility-action="toggle-reduced-motion"
                                             type="button"
                                         >
-                                            Reduzir Animações
+                                            Reduce Animations
                                         </button>
 
                                         <button
                                             data-lumina-accessibility-action="toggle-inverted-colors"
                                             type="button"
                                         >
-                                            Inverter Cores
+                                            Invert Colors
                                         </button>
 
                                         <button
                                             data-lumina-accessibility-action="toggle-high-contrast"
                                             type="button"
                                         >
-                                            Alto Contraste
+                                            High Contrast
                                         </button>
 
                                         <button
                                             data-lumina-accessibility-action="toggle-focus-highlight"
                                             type="button"
                                         >
-                                            Destacar Foco
+                                            Highlight Focus
                                         </button>
                                     </div>
                                 </div>
 
                                 <div class="accessibility-group">
-                                    <strong>Ajustes de Leitura</strong>
+                                    <strong>Reading Adjustments</strong>
 
                                     <div class="accessibility-demo-grid">
                                         <button
                                             data-lumina-accessibility-action="toggle-large-font"
                                             type="button"
                                         >
-                                            Fonte Maior
+                                            Larger Font
                                         </button>
 
                                         <button
                                             data-lumina-accessibility-action="toggle-dyslexia-mode"
                                             type="button"
                                         >
-                                            Modo Dislexia
+                                            Dyslexia Mode
                                         </button>
                                     </div>
                                 </div>
@@ -865,8 +865,8 @@ shimmer.pulse("#status-card");</code></pre>
                 <div class="container parallax-band-content">
                     <span>Built as plugins.</span>
                     <p>
-                        Cada recurso do LuminaFX é independente, configurável
-                        e fácil de encaixar em qualquer projeto.
+                        Every LuminaFX feature is independent, configurable,
+                        and easy to integrate into any project.
                     </p>
                 </div>
             </section>
@@ -875,16 +875,16 @@ shimmer.pulse("#status-card");</code></pre>
                 <div class="container">
                     <div class="docs-grid">
                         <div class="docs-copy">
-                            <span class="section-kicker">Instalação</span>
+                            <span class="section-kicker">Installation</span>
 
                             <h2>
-                                Inicialize o core, conecte os plugins e pronto.
+                                Initialize the core, connect the plugins, and you are ready.
                             </h2>
 
                             <p>
-                                O LuminaFX foi desenhado para funcionar como uma camada
-                                visual plugável. Você cria a instância, registra os plugins
-                                que quer usar e inicia.
+                                LuminaFX was designed to work as a pluggable
+                                visual layer. You create the instance, register the plugins
+                                you want to use, and start it.
                             </p>
 
                             <div class="install-pills">
@@ -955,7 +955,7 @@ await Lumina
     .use(toast)
     .start();
 
-toast.success("LuminaFX iniciado!");</code></pre>
+toast.success("LuminaFX started!");</code></pre>
                             </div>
                         </div>
                     </div>
@@ -963,62 +963,62 @@ toast.success("LuminaFX iniciado!");</code></pre>
                     <div class="plugin-list" data-lumina-cascade>
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>ThemePlugin</strong>
-                            <span>transição de tema</span>
+                            <span>theme transition</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>DropdownPlugin</strong>
-                            <span>menus independentes</span>
+                            <span>independent menus</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>PasswordVisibilityPlugin</strong>
-                            <span>toggle de senha</span>
+                            <span>password toggle</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>ShimmerPlugin</strong>
-                            <span>feedback de atualização</span>
+                            <span>update feedback</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>CascadePlugin</strong>
-                            <span>entrada em sequência</span>
+                            <span>sequential entrance</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>SpotlightPlugin</strong>
-                            <span>brilho seguindo cursor</span>
+                            <span>cursor-following glow</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>ToastPlugin</strong>
-                            <span>notificações temporárias</span>
+                            <span>temporary notifications</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>TooltipPlugin</strong>
-                            <span>dicas contextuais</span>
+                            <span>contextual tips</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>SwitchPlugin</strong>
-                            <span>troca de painéis</span>
+                            <span>panel switching</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>ConstellationPlugin</strong>
-                            <span>partículas conectadas</span>
+                            <span>connected particles</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>StormPlugin</strong>
-                            <span>tempestade digital</span>
+                            <span>digital storm</span>
                         </div>
 
                         <div class="plugin-item" data-lumina-spotlight data-lumina-cascade-item>
                             <strong>AccessibilityPlugin</strong>
-                            <span>controles visuais</span>
+                            <span>visual controls</span>
                         </div>
                     </div>
                 </div>
@@ -1026,15 +1026,15 @@ toast.success("LuminaFX iniciado!");</code></pre>
 
             <section class="final-cta">
                 <div class="container final-cta-card" data-lumina-spotlight>
-                    <span class="section-kicker">Pronto para usar</span>
+                    <span class="section-kicker">Ready to use</span>
 
                     <h2>
-                        Transforme efeitos soltos em uma camada visual consistente.
+                        Turn scattered effects into a consistent visual layer.
                     </h2>
 
                     <p>
-                        Use o LuminaFX para criar interfaces mais fluidas, responsivas
-                        e memoráveis sem acoplar seu projeto a uma stack específica.
+                        Use LuminaFX to create more fluid, responsive,
+                        and memorable interfaces without coupling your project to a specific stack.
                     </p>
 
                     <div class="hero-actions final-cta-actions">
@@ -1042,7 +1042,7 @@ toast.success("LuminaFX iniciado!");</code></pre>
                             class="primary-link"
                             href="#install"
                         >
-                            Ver instalação
+                            View installation
                         </a>
 
                         <button
@@ -1050,7 +1050,7 @@ toast.success("LuminaFX iniciado!");</code></pre>
                             data-lumina-theme-toggle
                             type="button"
                         >
-                            Testar tema
+                            Test theme
                         </button>
                     </div>
                 </div>
@@ -1066,7 +1066,7 @@ toast.success("LuminaFX iniciado!");</code></pre>
                         href="https://github.com/godoyp/lumina-fx"
                         target="_blank"
                         rel="noreferrer"
-                        aria-label="Abrir repositório LuminaFX no GitHub"
+                        aria-label="Open the LuminaFX repository on GitHub"
                     >
                         <svg
                             class="footer-github-icon"

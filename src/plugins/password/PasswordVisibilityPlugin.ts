@@ -72,11 +72,11 @@ export class PasswordVisibilityPlugin extends BasePlugin {
 
         this.visibleLabel =
             options.visibleLabel ??
-            "Ocultar senha";
+            "Hide Password";
 
         this.hiddenLabel =
             options.hiddenLabel ??
-            "Mostrar senha";
+            "Show Password";
 
         this.updateText =
             options.updateText ??

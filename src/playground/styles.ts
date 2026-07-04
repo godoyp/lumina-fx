@@ -1,9 +1,12 @@
+const assetBaseUrl =
+    import.meta.env.BASE_URL;
+
 const playgroundStyles = `
 
     @font-face {
         font-family: "OpenDyslexic";
         src:
-            url("/fonts/OpenDyslexic-Regular.otf")
+            url("${assetBaseUrl}fonts/OpenDyslexic-Regular.otf")
             format("opentype");
         font-weight: 400;
         font-style: normal;
@@ -13,7 +16,7 @@ const playgroundStyles = `
     @font-face {
         font-family: "OpenDyslexic";
         src:
-            url("/fonts/OpenDyslexic-Italic.otf")
+            url("${assetBaseUrl}fonts/OpenDyslexic-Italic.otf")
             format("opentype");
         font-weight: 400;
         font-style: italic;
@@ -23,7 +26,7 @@ const playgroundStyles = `
     @font-face {
         font-family: "OpenDyslexic";
         src:
-            url("/fonts/OpenDyslexic-Bold.otf")
+            url("${assetBaseUrl}fonts/OpenDyslexic-Bold.otf")
             format("opentype");
         font-weight: 700;
         font-style: normal;
@@ -33,7 +36,7 @@ const playgroundStyles = `
     @font-face {
         font-family: "OpenDyslexic";
         src:
-            url("/fonts/OpenDyslexic-BoldItalic.otf")
+            url("${assetBaseUrl}fonts/OpenDyslexic-BoldItalic.otf")
             format("opentype");
         font-weight: 700;
         font-style: italic;

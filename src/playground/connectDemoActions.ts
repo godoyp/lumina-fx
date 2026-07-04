@@ -77,12 +77,12 @@ function handleSimulateUpdate(
     if (statusText) {
 
         statusText.textContent =
-            `Atualizado em ${new Date().toLocaleTimeString()}`;
+            `Updated at ${new Date().toLocaleTimeString()}`;
 
     }
 
     playground.toast.success(
-        "Status atualizado com sucesso!"
+        "Status updated successfully!"
     );
 
     playground.shimmer.pulse(
@@ -110,7 +110,7 @@ function handlePulseHero(
     );
 
     playground.toast.success(
-        "Preview atualizado!"
+        "Preview updated!"
     );
 
 }
@@ -170,7 +170,7 @@ function handleToastSuccess(
     }
 
     playground.toast.success(
-        "Operação concluída com sucesso!"
+        "Operation completed successfully!"
     );
 
 }
@@ -190,7 +190,7 @@ function handleToastInfo(
     }
 
     playground.toast.info(
-        "Operação concluída com sucesso!"
+        "Operation completed successfully!"
     );
 
 }
@@ -210,7 +210,7 @@ function handleToastError(
     }
 
     playground.toast.error(
-        "Não foi possível concluir a operação."
+        "The operation could not be completed."
     );
 
 }
@@ -239,9 +239,11 @@ function handleCascadeDemoToggle(
     }
 
     const items =
-        [...list.querySelectorAll<HTMLElement>(
-            "[data-lumina-cascade-item]"
-        )];
+        Array.from(
+            list.querySelectorAll<HTMLElement>(
+                "[data-lumina-cascade-item]"
+            )
+        );
 
     const isHidden =
         list.classList.contains(
@@ -255,7 +257,7 @@ function handleCascadeDemoToggle(
         );
 
         button.textContent =
-            "Ocultar itens";
+            "Hide items";
 
         button.setAttribute(
             "aria-expanded",
@@ -297,7 +299,7 @@ function handleCascadeDemoToggle(
         );
 
         playground.toast.info(
-            "Itens exibidos em cascata."
+            "Items displayed in a cascade."
         );
 
         return;
@@ -309,7 +311,7 @@ function handleCascadeDemoToggle(
     );
 
     button.textContent =
-        "Exibir itens";
+        "Show items";
 
     button.setAttribute(
         "aria-expanded",
@@ -327,7 +329,7 @@ function handleCascadeDemoToggle(
     );
 
     playground.toast.info(
-        "Itens ocultados."
+        "Hidden items."
     );
 
 }

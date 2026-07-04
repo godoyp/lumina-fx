@@ -325,12 +325,12 @@ async function main(): Promise<void> {
                     </span>
 
                     <h1>
-                        Página de exemplo
+                        Example page
                     </h1>
 
                     <p>
-                        Essa página existe só para testar a transição real
-                        entre documentos usando o LuminaFX.
+                        This page exists only to test the real transition
+                        between documents using LuminaFX.
                     </p>
 
                     <div class="actions">
@@ -339,7 +339,7 @@ async function main(): Promise<void> {
                             data-lumina-transition
                             data-lumina-transition-effect="glow"
                         >
-                            Voltar para o playground
+                            Back to playground
                         </a>
 
                         <button
@@ -347,7 +347,7 @@ async function main(): Promise<void> {
                             data-lumina-theme-toggle
                             type="button"
                         >
-                            Alternar tema
+                            Toggle theme
                         </button>
                     </div>
                 </div>
