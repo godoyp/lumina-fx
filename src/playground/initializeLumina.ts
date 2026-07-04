@@ -81,6 +81,7 @@ export async function initializeLumina(): Promise<PlaygroundLumina> {
             new TransitionPlugin({
                 effect: "glow",
                 duration: 720,
+                enterDuration: 220,
                 navigateDelay: 720,
                 enterOnLoad: true
             })

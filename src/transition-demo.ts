@@ -1,6 +1,5 @@
 import { Lumina } from "./core";
 import {
-    ConstellationPlugin,
     ThemePlugin,
     TransitionPlugin
 } from "./plugins";
@@ -14,6 +13,12 @@ style.textContent = `
         margin: 0;
         min-height: 100%;
         background: var(--bg);
+        scrollbar-width: none;
+        -ms-overflow-style: none; 
+    }
+
+    *::-webkit-scrollbar {
+        display: none;
     }
 
     :root[data-theme="light"] {
@@ -25,9 +30,6 @@ style.textContent = `
         --accent: #7c3aed;
         --accent-2: #06b6d4;
         --shadow: 0 24px 80px rgba(15, 23, 42, .12);
-
-        --lumina-constellation-color: rgba(15, 23, 42, .42);
-        --lumina-constellation-line-color: rgba(6, 182, 212, .38);
 
         --lumina-transition-bg: #f8fafc;
         --lumina-transition-glow: rgba(124, 58, 237, .34);
@@ -44,9 +46,6 @@ style.textContent = `
         --accent: #a78bfa;
         --accent-2: #22d3ee;
         --shadow: 0 24px 80px rgba(0, 0, 0, .35);
-
-        --lumina-constellation-color: rgba(226, 232, 240, .58);
-        --lumina-constellation-line-color: rgba(34, 211, 238, .48);
 
         --lumina-transition-bg: #020617;
         --lumina-transition-glow: rgba(167, 139, 250, .36);
@@ -69,18 +68,64 @@ style.textContent = `
             "Segoe UI",
             sans-serif;
         color: var(--fg);
+        background: var(--bg);
+    }
+
+    body::before,
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    body::before {
+        z-index: -2;
         background:
             radial-gradient(
-                circle at 20% 20%,
-                color-mix(in srgb, var(--accent) 22%, transparent),
+                circle at 20% 10%,
+                color-mix(
+                    in srgb,
+                    var(--accent) 26%,
+                    transparent
+                ),
                 transparent 34rem
             ),
             radial-gradient(
-                circle at 85% 70%,
-                color-mix(in srgb, var(--accent-2) 18%, transparent),
-                transparent 30rem
+                circle at 82% 18%,
+                color-mix(
+                    in srgb,
+                    var(--accent-2) 32%,
+                    transparent
+                ),
+                transparent 32rem
+            ),
+            radial-gradient(
+                circle at 50% 92%,
+                color-mix(
+                    in srgb,
+                    #7c3aed 28%,
+                    transparent
+                ),
+                transparent 36rem
             ),
             var(--bg);
+    }
+
+    body::after {
+        z-index: -1;
+        opacity: .12;
+        background-image:
+            linear-gradient(
+                rgba(148, 163, 184, .16) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(148, 163, 184, .16) 1px,
+                transparent 1px
+            );
+        background-size: 56px 56px;
     }
 
     main {
@@ -90,6 +135,44 @@ style.textContent = `
         display: grid;
         place-items: center;
         padding: 32px;
+        overflow: hidden;
+    }
+
+    main::before {
+        content: "";
+        position: fixed;
+        inset: -20%;
+        z-index: -1;
+        pointer-events: none;
+        background:
+            radial-gradient(
+                circle at 18% 12%,
+                color-mix(
+                    in srgb,
+                    var(--accent) 32%,
+                    transparent
+                ),
+                transparent 34rem
+            ),
+            radial-gradient(
+                circle at 82% 18%,
+                color-mix(
+                    in srgb,
+                    var(--accent-2) 32%,
+                    transparent
+                ),
+                transparent 32rem
+            ),
+            radial-gradient(
+                circle at 50% 92%,
+                color-mix(
+                    in srgb,
+                    #7c3aed 28%,
+                    transparent
+                ),
+                transparent 36rem
+            );
+        opacity: .9;
     }
 
     .demo-card {
@@ -189,7 +272,8 @@ style.textContent = `
             0 16px 40px rgba(0, 0, 0, .16);
         transition:
             transform .18s ease,
-            box-shadow .18s ease;
+            box-shadow .18s ease,
+            opacity .18s ease;
     }
 
     a:hover,
@@ -199,11 +283,32 @@ style.textContent = `
             0 20px 50px rgba(0, 0, 0, .2);
     }
 
+    a:active,
+    button:active {
+        transform: translateY(0) scale(.98);
+    }
+
     .ghost-button {
         color: var(--fg);
         background: var(--card);
         border: 1px solid var(--border);
         box-shadow: none;
+    }
+
+    @media (max-width: 640px) {
+        main {
+            padding: 20px;
+        }
+
+        .actions {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        a,
+        button {
+            width: 100%;
+        }
     }
 `;
 
@@ -212,8 +317,6 @@ document.head.appendChild(style);
 async function main(): Promise<void> {
 
     document.body.innerHTML = `
-        <div data-lumina-constellation></div>
-
         <main>
             <section class="demo-card">
                 <div class="demo-content">
@@ -242,6 +345,7 @@ async function main(): Promise<void> {
                         <button
                             class="ghost-button"
                             data-lumina-theme-toggle
+                            type="button"
                         >
                             Alternar tema
                         </button>
@@ -266,21 +370,9 @@ async function main(): Promise<void> {
             new TransitionPlugin({
                 effect: "glow",
                 duration: 720,
-                navigateDelay: 520,
+                enterDuration: 220,
+                navigateDelay: 720,
                 enterOnLoad: true
-            })
-        )
-        .use(
-            new ConstellationPlugin({
-                mode: "background",
-                density: "medium",
-                interactive: true,
-                connectDistance: 170,
-                mouseRadius: 190,
-                speed: 0.28,
-                radius: 1.8,
-                opacity: 0.9,
-                lineOpacity: 0.62
             })
         )
         .start();

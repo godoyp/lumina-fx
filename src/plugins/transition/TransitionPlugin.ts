@@ -16,6 +16,8 @@ export interface TransitionPluginOptions {
 
     duration?: number;
 
+    enterDuration?: number;
+
     navigateDelay?: number;
 
     disabledClassName?: string;
@@ -32,6 +34,8 @@ export interface TransitionNavigateOptions {
 
     duration?: number;
 
+    enterDuration?: number;
+
     navigateDelay?: number;
 
     trigger?: HTMLElement | null;
@@ -45,6 +49,16 @@ interface TransitionListener {
     type: keyof HTMLElementEventMap;
 
     listener: EventListener;
+
+}
+
+interface StoredTransitionState {
+
+    effect: TransitionEffect;
+
+    duration: number;
+
+    enterDuration: number;
 
 }
 
@@ -63,6 +77,8 @@ export class TransitionPlugin extends BasePlugin {
     private readonly effect: TransitionEffect;
 
     private readonly duration: number;
+
+    private readonly enterDuration: number;
 
     private readonly navigateDelay: number;
 
@@ -100,6 +116,10 @@ export class TransitionPlugin extends BasePlugin {
         this.duration =
             options.duration ??
             520;
+
+        this.enterDuration =
+            options.enterDuration ??
+            260;
 
         this.navigateDelay =
             options.navigateDelay ??
@@ -166,6 +186,11 @@ export class TransitionPlugin extends BasePlugin {
             this.disabledClassName
         );
 
+        this.dom.removeClass(
+            document.body,
+            `${this.className}-body-active`
+        );
+
     }
 
     refresh(): void {
@@ -207,6 +232,10 @@ export class TransitionPlugin extends BasePlugin {
             options.duration ??
             this.duration;
 
+        const enterDuration =
+            options.enterDuration ??
+            this.enterDuration;
+
         const navigateDelay =
             options.navigateDelay ??
             this.navigateDelay;
@@ -224,7 +253,8 @@ export class TransitionPlugin extends BasePlugin {
 
         this.storeTransitionState(
             effect,
-            duration
+            duration,
+            enterDuration
         );
 
         this.play(
@@ -307,6 +337,7 @@ export class TransitionPlugin extends BasePlugin {
                 trigger,
                 effect: this.resolveEffect(trigger),
                 duration: this.resolveDuration(trigger),
+                enterDuration: this.resolveEnterDuration(trigger),
                 navigateDelay: this.resolveNavigateDelay(trigger)
             }
         );
@@ -409,6 +440,28 @@ export class TransitionPlugin extends BasePlugin {
 
     }
 
+    private resolveEnterDuration(
+        trigger: HTMLElement
+    ): number {
+
+        const value =
+            trigger.dataset.luminaTransitionEnterDuration;
+
+        if (!value) {
+            return this.enterDuration;
+        }
+
+        const parsed =
+            Number(value);
+
+        if (Number.isNaN(parsed)) {
+            return this.enterDuration;
+        }
+
+        return parsed;
+
+    }
+
     private resolveNavigateDelay(
         trigger: HTMLElement
     ): number {
@@ -465,7 +518,8 @@ export class TransitionPlugin extends BasePlugin {
 
     private storeTransitionState(
         effect: TransitionEffect,
-        duration: number
+        duration: number,
+        enterDuration: number
     ): void {
 
         try {
@@ -474,7 +528,8 @@ export class TransitionPlugin extends BasePlugin {
                 this.storageKey,
                 JSON.stringify({
                     effect,
-                    duration
+                    duration,
+                    enterDuration
                 })
             );
 
@@ -487,10 +542,7 @@ export class TransitionPlugin extends BasePlugin {
 
     }
 
-    private consumeTransitionState(): {
-        effect: TransitionEffect;
-        duration: number;
-    } | null {
+    private consumeTransitionState(): StoredTransitionState | null {
 
         try {
 
@@ -511,6 +563,7 @@ export class TransitionPlugin extends BasePlugin {
                 JSON.parse(raw) as {
                     effect?: string;
                     duration?: number;
+                    enterDuration?: number;
                 };
 
             if (!this.isEffect(parsed.effect)) {
@@ -522,7 +575,11 @@ export class TransitionPlugin extends BasePlugin {
                 duration:
                     typeof parsed.duration === "number"
                         ? parsed.duration
-                        : this.duration
+                        : this.duration,
+                enterDuration:
+                    typeof parsed.enterDuration === "number"
+                        ? parsed.enterDuration
+                        : this.enterDuration
             };
 
         } catch {
@@ -549,7 +606,7 @@ export class TransitionPlugin extends BasePlugin {
         this.dom.style(
             this.overlay,
             "--lumina-transition-duration",
-            `${state.duration}ms`
+            `${state.enterDuration}ms`
         );
 
         this.overlay.dataset.effect =
@@ -592,7 +649,7 @@ export class TransitionPlugin extends BasePlugin {
                         );
 
                     },
-                    state.duration
+                    state.enterDuration
                 );
 
             }
@@ -723,6 +780,11 @@ export class TransitionPlugin extends BasePlugin {
                 }
 
                 .${this.className}.is-active::before {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+
+                .${this.className}.is-entering::before {
                     opacity: 1;
                     transform: scale(1);
                 }
